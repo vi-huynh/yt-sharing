@@ -1,0 +1,11 @@
+---
+verbose: false
+concurrency:  <%= ENV['SIDEKIQ_WORKER'] || 2 %>  
+pidfile: ./tmp/pids/sidekiq.pid
+logfile: ./log/sidekiq.log
+queues:
+  - notifier
+  - <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_default
+  - <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_mailers
+  - default
+

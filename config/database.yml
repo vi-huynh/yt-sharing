@@ -1,0 +1,21 @@
+# PostgreSQL. Versions 9.3 and up are supported.
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host:     <%= ENV["PG_HOST"] %>
+  username: <%= ENV["PG_USERNAME"] %>
+  password: <%= ENV["PG_PASSWORD"] %>
+
+development:
+  <<: *default
+  database: yt_sharing_development
+
+test:
+  <<: *default
+  database: yt_sharing_development
+
+production:
+  <<: *default
+  database: yt_sharing_production
+  
