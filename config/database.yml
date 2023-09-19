@@ -13,7 +13,7 @@ development:
 
 test:
   <<: *default
-  database: yt_sharing_development
+  database: yt_sharing_test
 
 production:
   <<: *default

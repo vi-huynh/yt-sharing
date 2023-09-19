@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_13_171148) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_19_082423) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,7 +21,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_13_171148) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "video_id"
     t.index ["sharer_id"], name: "index_links_on_sharer_id"
+    t.index ["video_id"], name: "index_links_on_video_id", unique: true
   end
 
   create_table "tokens", force: :cascade do |t|

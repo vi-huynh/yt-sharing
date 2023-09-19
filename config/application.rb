@@ -15,7 +15,7 @@ module YtSharing
 
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
-    config.middleware.use Middlewares::JWT unless Rails.env.test?
+    config.middleware.use Middlewares::JWT #unless Rails.env.test?
 
     # Configuration for the application, engines, and railties goes here.
     #

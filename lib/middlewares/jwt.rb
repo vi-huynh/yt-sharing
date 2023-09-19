@@ -5,7 +5,7 @@ module Middlewares
     end
 
     def call(env)
-      return call_next(env) if env['REQUEST_PATH'].match(/\/auth\/?/) && env['REQUEST_METHOD'].eql?('POST')
+      return call_next(env) if env['REQUEST_PATH']&.match(/\/auth\/?/) && env['REQUEST_METHOD']&.eql?('POST')
       request_cookies = Rack::Utils.parse_cookies(env)
 
       return call_next(env) unless request_cookies.present?

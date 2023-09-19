@@ -22,9 +22,8 @@ module Session
 
     def construct_session
       return @construct_session if defined?(@construct_session)
-
+      # byebug
       user = User.find_by(email: @email)
-
       @construct_session = user.present? && user.authenticate(@password) ? user : nil
     end
   end

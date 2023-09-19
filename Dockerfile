@@ -31,8 +31,14 @@ ENV LANG=C.UTF-8 \
 RUN gem update --system && gem install bundler
 
 WORKDIR /app
+COPY Gemfile /app/Gemfile
+COPY Gemfile.lock /app/Gemfile.lock
 
-COPY Gemfile Gemfile.lock ./
-RUN bundle check || bundle install --jobs 4
+RUN echo "bundle install..."
+RUN bundle install
 
-COPY . .
+# ENTRYPOINT ["./bin/docker-entrypoint.sh"]
+
+# EXPOSE 3000
+
+# CMD ["bundle", "exec", "rails", "s", "-b", "0.0.0.0"]

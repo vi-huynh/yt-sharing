@@ -17,7 +17,7 @@ module V1
       set_access_token(access_token)
       set_refresh_token(refresh_token)
 
-      json_response({})
+      json_response(message: 'Success', access_token: access_token, refresh_token: refresh_token)
     rescue Session::SessionInvalid => e
       render_400(e)
     rescue StandardError => e

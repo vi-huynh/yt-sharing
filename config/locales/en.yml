@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+  session: 
+    invalid_credentials: 'invalid_credentials'
+
+  auth:
+    invalid_token: 'invalid_token'
